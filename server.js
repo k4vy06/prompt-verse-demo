@@ -1,24 +1,31 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const root = path.resolve(__dirname, 'dist');
 
-console.log('Starting server...');
-console.log('Serving files from:', path.join(__dirname, 'dist'));
+console.log('--- SYSTEM BOOT ---');
+console.log('Target Directory:', root);
 
-app.use(express.static(path.join(__dirname, 'dist')));
+if (!fs.existsSync(root)) {
+  console.error('CRITICAL ERROR: dist directory not found!');
+  process.exit(1);
+}
+
+app.use(express.static(root));
 
 app.get('*', (req, res) => {
-  const indexPath = path.join(__dirname, 'dist', 'index.html');
-  console.log('Serving request for:', req.url);
+  const indexPath = path.join(root, 'index.html');
+  console.log('REQ:', req.url, '->', indexPath);
   res.sendFile(indexPath);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is successfully listening on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server live on port ${PORT}`);
 });

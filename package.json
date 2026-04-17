@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "gcp-build": "npm run build",
+    "gcp-build": "npm run build && echo 'BUILD COMPLETE' && ls -R dist",
     "start": "node server.js",
     "lint": "eslint .",
     "preview": "vite preview"
