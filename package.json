@@ -1,0 +1,12 @@
+{
+  "name": "nexus-event-dashboard",
+  "version": "1.0.0",
+  "description": "Nexus Event Experience Dashboard",
+  "main": "script.js",
+  "scripts": {
+    "start": "npx serve -l $PORT ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
