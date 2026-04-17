@@ -16,7 +16,7 @@ import {
   BarChart3,
   Download
 } from 'lucide-react';
-import QRCode from 'react-qr-code';
+import { QRCodeCanvas } from 'qrcode.react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 // --- MOCK DATABASE HELPER ---
@@ -126,8 +126,14 @@ const Register = () => {
           </div>
           <h2 className="gradient-text">Registration Complete!</h2>
           <p style={{ color: 'var(--text-secondary)' }}>Welcome to EventFlow, {success.name}. Here is your unique access pass.</p>
-          <div style={{ background: '#fff', padding: '20px', borderRadius: '15px', margin: '10px auto', width: 'fit-content' }}>
-            <QRCode value={success.id} size={180} />
+          <div style={{ background: '#fff', padding: '20px', borderRadius: '15px', margin: '10px auto', width: 'fit-content', boxShadow: '0 0 20px rgba(255,255,255,0.1)' }}>
+            <QRCodeCanvas 
+              value={success.id} 
+              size={180}
+              level={"H"}
+              includeMargin={false}
+              style={{ display: 'block' }}
+            />
           </div>
           <div style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
             ID: <span style={{ color: '#fff', fontWeight: 'bold' }}>{success.id.toUpperCase()}</span>
