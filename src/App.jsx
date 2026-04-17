@@ -93,6 +93,25 @@ const Home = () => (
         </div>
       ))}
     </div>
+
+    {/* PROMPT WARS TIMELINE SECTION */}
+    <div style={{ marginTop: '100px', width: '100%', textAlign: 'left' }}>
+      <h2 style={{ marginBottom: '40px' }}><span className="gradient-text">How it works:</span> The 14-day cycle</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px' }}>
+        {[
+          { phase: 'Phase 1', title: 'Challenge Release', desc: 'New challenge every two weeks on Monday. Real-world industry problems.' },
+          { phase: 'Phase 2', title: 'Building Phase', desc: 'Use your creativity and vibe coding with Google Antigravity.' },
+          { phase: 'Phase 3', title: 'Submission', desc: 'By Day 13: Technical code + Narrative blog/social posts.' },
+          { phase: 'Phase 4', title: 'Announcement', desc: 'Day 14: Expert review, move up leaderboard and earn credits.' }
+        ].map((p, i) => (
+          <div key={i} className="glass" style={{ padding: '25px', position: 'relative', borderTop: '4px solid var(--accent-gold)' }}>
+            <div style={{ color: 'var(--accent-gold)', fontSize: '0.8rem', fontWeight: 'bold', marginBottom: '10px' }}>{p.phase}</div>
+            <h4 style={{ marginBottom: '10px' }}>{p.title}</h4>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   </motion.div>
 );
 
@@ -170,6 +189,29 @@ const AdminDashboard = () => {
         </div>
       </div>
       <div className="glass" style={{ padding: '30px' }}>
+        <h3 style={{ marginBottom: '20px' }}>Attendee Records</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          {regs.length === 0 ? <p style={{ color: 'var(--text-secondary)' }}>No registrations yet.</p> : 
+            regs.map(r => (
+            <div key={r.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px', background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
+              <div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 'bold' }}>{r.name}</div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{r.college} • {r.email}</div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                {r.attended ? (
+                  <span style={{ color: '#22c55e', fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: '4px', background: '#22c55e10', padding: '4px 8px', borderRadius: '4px' }}>
+                    <CheckCircle2 size={12} /> SCANNED
+                  </span>
+                ) : (
+                  <span style={{ color: 'var(--text-secondary)', fontSize: '0.7rem', background: 'rgba(255,255,255,0.05)', padding: '4px 8px', borderRadius: '4px' }}>PENDING</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="glass" style={{ padding: '30px', marginTop: '20px' }}>
         <h3>Broadcast Update</h3>
         <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
           <input placeholder="Update message..." style={{ flex: 1, background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', padding: '12px', borderRadius: '10px', color: '#fff' }} value={txt} onChange={e => setTxt(e.target.value)} />
