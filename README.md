@@ -1,25 +1,16 @@
-# Nexus Event Experience Dashboard 🚀
+# React + Vite
 
-A premium web application designed to streamline physical event management and enhance the attendee experience.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🔹 Features
-- **Modern Dashboard:** High-level overview of tickets, check-ins, and revenue.
-- **Dynamic Event Management:** View and manage active and upcoming events.
-- **Interactive Event Pass:** Seamless digital check-in simulation with QR code generation.
-- **Live Activity Feed:** Real-time updates on attendee check-ins.
-- **Premium UI:** Sleek dark mode with glassmorphism aesthetics and smooth animations.
+Currently, two official plugins are available:
 
-## 🛠️ Tech Stack
-- **Structure:** Semantic HTML5
-- **Styling:** Vanilla CSS (Modern Flexbox/Grid, CSS Variables, Glassmorphism)
-- **Logic:** Native JavaScript (ES6+)
-- **Icons:** Material Symbols Rounded
-- **Typography:** Inter (Google Fonts)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 📸 Screenshots
-*(Add your screenshots here)*
+## React Compiler
 
-## 🚀 Getting Started
-Simply open `index.html` in your browser to experience the dashboard.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-#WebDevelopment #Projects #Learning #BuildInPublic
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
