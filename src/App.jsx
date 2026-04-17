@@ -15,8 +15,9 @@ import {
   Download,
   AlertCircle
 } from 'lucide-react';
-import { QRCodeCanvas } from 'qrcode.react';
+import * as QRCode from 'qrcode.react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
+const QRCodeCanvas = QRCode.QRCodeCanvas || QRCode.default || QRCode;
 
 // --- MOCK DATABASE HELPER ---
 const db = {
