@@ -8,12 +8,17 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+console.log('Starting server...');
+console.log('Serving files from:', path.join(__dirname, 'dist'));
+
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  console.log('Serving request for:', req.url);
+  res.sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is successfully listening on port ${PORT}`);
 });
